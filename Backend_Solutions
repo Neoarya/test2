@@ -1,0 +1,33 @@
+Q1. How to access the id from this request in the handler?
+
+app.get('/article/:id', function(req , res) {
+  // body
+})
+
+A1. The req.params property is an object containing properties mapped to the named route “parameters”. /article/:id, then the “id” property is available as req.params.id. 
+This object defaults to {}.
+
+Syntax: req.params
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q2. Write a middleware that'll log the time of all incoming requests.
+
+A2.
+
+const showTime = (request, response) =>{
+    console.log(JSON.stringify({
+      timestamp: Date.now()
+    });
+    response.end();
+};
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3. What's the difference between these statements?
+
+db.cars.save({motor: "6-cylinder", color:"black"})
+db.cars.insert(_id: "123", {motor:"6-cylinder" , color:"black"})
+
+A3. Save and insert will work same if 'save' is used without id. So, both statements will do same task. 
+
