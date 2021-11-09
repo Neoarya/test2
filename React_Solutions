@@ -1,0 +1,29 @@
+                                                                               ---------------
+                                                                               REACT_SOLUTIONS
+                                                                               ---------------
+
+Q1. What is the difference between the below snippets?
+
+const [state, setState] = useState(0);
+setState((state) => state + 1);
+
+const [state, setState] = useState(0);
+setState(state + 1);
+
+A1. Both the statements will wrk same i.e. initial value of state (0) will be updated by 1 on calling setState as any event is fired. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3. How would you fetch data from an API in a functional component when the component mounts?
+
+A3. Step 1. Refactoring From a Class to Functional Component
+    Step 2. useEffect
+    Step 3. Moving From this.setState({}) to Hooks
+    
+  example: 
+  componentDidMount() {
+    fetch("https://swapi.co/api/planets/4/")
+      .then(res => res.json())
+      .then(res => this.setState({ planets: res }))
+      .catch(() => this.setState({ hasErrors: true }));
+  }
