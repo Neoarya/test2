@@ -1,0 +1,79 @@
+                                                                                  ------------------
+                                                                                  JAVASCRIPT SECTION
+                                                                                  ------------------
+
+Q1. What's the difference between the below snippets? Support your answer.
+
+function a() {
+  const random = Math.random();
+  if (random < 0.5) {
+    var b = 1;
+    b = b + 1;
+  } else {
+    var b = 2;
+    b = b + 1;
+  }
+  console.log(b);
+}
+a();
+
+function a() {
+  const random = Math.random();
+  if (random < 0.5) {
+    let b = 1;
+    b = b + 1;
+  } else {
+    let b = 2;
+    b = b + 1;
+  }
+  console.log(b);
+}
+a();
+
+
+A1. Output for first function  : 3
+    Output for second function : Error (b not defined)
+    
+    This happened because first function uses var to declare b and var is function scoped whereas second function uses let to declare b and let is block scoped.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q2. Are these functions the same? Support your answer.
+
+function foo1() {
+  return {
+      bar: "hello"
+  };
+}
+
+function foo2() {
+  return
+  {
+      bar: "hello"
+  };
+}
+
+
+A2. Output:
+
+foo1 will return: Object {bar: "hello"}
+foo2 will return: undefined 
+
+No, both the function are different because JavaScript interprets foo2's return as return statement followed by block creation (which is ignored in runtime). 
+Not as "return an object".
+
+ASI inserts ; after return resulting in the equivalent code i.e. return; So it will kill the rest of code after return statement and will output undefined.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q3. What will be the output of the bellow code? Support your answer.
+
+function sum(a, b) {
+    alert(a + b);
+}
+
+function sum(c) {
+    alert(c);
+}
+
+sum(3);
+
+A3. The output will be 3 (popup alert).
+
+Here second function will be called with single argument. i.e. sum(c) 
